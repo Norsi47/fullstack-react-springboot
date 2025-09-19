@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Testing</title>
+    <link rel="stylesheet" href="css/testIndex.css">
+</head>
+<body>
+    <div id="blunt"></div>
+    
+    <script>
+        //random number between 2 and 10
+        const ranNum = Math.floor(Math.random()*10)+2;
+
+        //show num on page, h1 for first part
+        const showNum = document.createElement("h1");
+        //logic for showing num
+        showNum.innerHTML = `Generated Num 2-10: ${ranNum}`;
+        
+        //show second part on page, h2 for second part
+        const resultOfShowNum = document.createElement("h2");
+        // for logic and calculation
+        if (ranNum % 2 == 0) {
+            resultOfShowNum.innerHTML = `The number is even! and num is: ${ranNum}`;
+            
+        } else {
+            resultOfShowNum.innerHTML = `The number is odd! and the num is: ${ranNum}`
+        }
+
+        //div id is needed to show logic and text on page
+        const blunt = document.getElementById("blunt");
+        //need to use variable name that createElement or shows what is in page
+        blunt.appendChild(showNum);
+        blunt.appendChild(resultOfShowNum);
+    </script>
+
+</body>
+</html>
