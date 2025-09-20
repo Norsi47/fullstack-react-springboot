@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple HTML Using Reach</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <!-- this line is not mandatory, but recommended -->
+    <div id="root"></div>
+
+    <script src="./react-lib/react.development.js"></script>
+    <script src="./react-lib/react-dom.development.js"></script>
+
+    <script>
+      //generate random number between 1 and 100
+      const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+      //creating element to display the random number
+      //we are able to use React element because of script that was added
+      const numberElement = React.createElement(
+        "h1",
+        null,
+        `Generate Number: ${randomNumber}`
+      );
+      //this is what prints outs the random number with the print gnerate number
+      /*
+        //commenting it out because React library helps it to be in one line
+        numberElement.innerHTML = `Generate Number: ${randomNumber}`;
+        */
+
+      const resultElement = React.createElement(
+        "h2",
+        //remove null and change colors here
+        { style: { color: "blue" } },
+        /*
+            this line is similar to if and else statement, use line 42-46 as reference
+            */
+        randomNumber % 2 === 0 ? "The number is even!" : "The number is odd!"
+      );
+      //conditional logic
+      //   if (randomNumber % 2 == 0) {
+      //     resultElement.innerHTML = "The number is even!";
+      //   } else {
+      //     resultElement.innerHTML = "The number is odd!";
+      //   }
+
+      // this line is also similar to line 53-55, the getting root element section
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      //   root.render([numberElement, resultElement]);
+      root.render(
+        //creates another div within body
+        React.createElement("div", { id: "childDiv" }, [
+          numberElement,
+          resultElement,
+        ])
+      );
+      //this is what lets the text show
+      //Getting root element from div id ine line 10, needs to match
+      //   const root = document.getElementById("root");
+      //   root.appendChild(numberElement);
+      //   root.appendChild(resultElement);
+    </script>
+  </body>
+</html>
